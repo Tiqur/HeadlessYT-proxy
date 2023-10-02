@@ -3,13 +3,15 @@
 #include <stdio.h>
 #include "include/ws.h"
 
+extern ws_cli_conn_t *global_client;
+
 void onopen(ws_cli_conn_t *client)
 {
+  global_client = client;
+
   char *cli;
   cli = ws_getaddress(client);
   printf("Connection opened, addr: %s\n", cli);
-  sleep(2);
-  ws_sendframe_txt(client, "pause-play");
 }
 
 void onclose(ws_cli_conn_t *client)
