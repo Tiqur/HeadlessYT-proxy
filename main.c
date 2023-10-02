@@ -40,7 +40,7 @@ void *start_http_server()
 {
   struct mg_mgr mgr;                                
   mg_mgr_init(&mgr);
-  mg_http_listen(&mgr, "http://0.0.0.0:8000", fn, NULL);
+  mg_http_listen(&mgr, "http://0.0.0.0:8111", fn, NULL);
   while (!stop_flag) {
     mg_mgr_poll(&mgr, 1000);
   }
